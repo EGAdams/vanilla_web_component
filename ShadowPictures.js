@@ -56,13 +56,11 @@ class ShadowPictures extends HTMLElement {
             <ken-burns-carousel id="second_image_container"
                     fade-duration="700"
                     slide-duration="6000"
-                    images="
-            https://www.riveroflifegrmi.org/templates/colddaybootstrap/images/church_location_sized.jpg
+                    images="https://www.riveroflifegrmi.org/templates/colddaybootstrap/images/church_location_sized.jpg
             https://www.riveroflifegrmi.org/templates/colddaybootstrap/images/large_Robert_Barnes_wave_sized.jpg
             https://www.riveroflifegrmi.org/templates/colddaybootstrap/images/leadership_party_robert_and_rosemary_1_08_sized.jpg
             https://www.riveroflifegrmi.org/photos/ministry_outreach_photos/another_church_in_argentina.jpg
-            https://www.riveroflifegrmi.org/images/top_row/congregationpicture.jpg
-                    ">
+            https://www.riveroflifegrmi.org/images/top_row/congregationpicture.jpg">
                 </ken-burns-carousel>
         </div>
         </div>
@@ -71,13 +69,11 @@ class ShadowPictures extends HTMLElement {
                 <ken-burns-carousel id="first_image_container"
                         fade-duration="700"
                         slide-duration="6000"
-                        images="
-            https://www.riveroflifegrmi.org/photos/ministry_outreach_photos/outreach_06_012808.jpg
+                        images="https://www.riveroflifegrmi.org/photos/ministry_outreach_photos/outreach_06_012808.jpg
             https://www.riveroflifegrmi.org/photos/ministry_outreach_photos/outreach_07_012808.jpg
             https://www.riveroflifegrmi.org/photos/ministry_outreach_photos/outreach_11_012808.jpg
             https://www.riveroflifegrmi.org/images/slider_row/100090002_10157601997037602_6020180131803299840_n.jpg
-            https://www.riveroflifegrmi.org/images/unlimited_row/1485995_877405962285249_5576116497943534535_o.jpg
-                        ">
+            https://www.riveroflifegrmi.org/images/unlimited_row/1485995_877405962285249_5576116497943534535_o.jpg">
                 </ken-burns-carousel>
             </div>
             

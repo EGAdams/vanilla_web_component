@@ -1,0 +1,17 @@
+.container {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 0.7fr 1.3fr 1fr 0.4fr 0.4fr 2.2fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+  }
+  
+  .green_remote { grid-area: 4 / 8 / 6 / 10; }
+  
+  .red_remote { grid-area: 4 / 12 / 6 / 13; }
+  
+  .score_button {
+    text-align:justify;
+    vertical-align: middle;
+    padding-top: 2px;
+  }

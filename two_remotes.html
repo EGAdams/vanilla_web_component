@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Frame</title>
+    <script type="importmap">
+        {
+          "imports": {
+            "vue":        "https://unpkg.com/vue@3/dist/vue.esm-browser.js",            // Vue.js
+            "log-viewer": "https://unpkg.com/@egadams/log-viewer@0.0.17/dist/index.js"   // log-viewer
+          }
+        }
+      </script>
+    <script src="./RemoteControl.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="./two_remotes.css" />
+
+</head>
+<body>
+    <h1>Remote Controls for Chinese System</h1> 
+    <div class="container">
+        <div class="green_remote">
+            <remote-control id="green_remote" remote_title="Green Remote" this_background_color="lightgreen" 
+                            opposing_background_color="#f05f5f" source_url="http://americansjewelry.com">
+                <span slot="this_team_score"    >Green Score</span>
+                <span slot="opposing_team_score">Red Score  </span>
+            </remote-control>
+        </div>
+        <div class="red_remote">
+            <remote-control id="red_remote" remote_title="Red Remote" this_background_color="#f05f5f" opposing_background_color="lightgreen">
+                <span class="score_button" slot="this_team_score"    >Red Score    </span>
+                <span class="score_button" slot="opposing_team_score">Green Score  </span>
+            </remote-control>
+        </div>
+    </div>
+
+
+
+</body> <!-- let temp = document.getElementById( "red_remote" ); temp.setAttribute( "remote_title", "Hey!" ) -->
+</html>

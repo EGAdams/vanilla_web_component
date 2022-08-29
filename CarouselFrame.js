@@ -4,7 +4,7 @@ class CarouselFrame extends HTMLElement {
         super();
         console.log( 'CarouselFrame constructor' );
         this.attachShadow({ mode: 'open' });
-        this.shadowRoot.innerHTML = `<div>This is a web component:<flat-head></flat-head></div>`;
+        this.shadowRoot.innerHTML = `<div>This is a web component:<shadow-pictures></shadow-pictures></div>`;
              
     }
 }

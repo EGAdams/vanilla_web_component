@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Log Viewer Test
+        </title>
+    </head>
+    <body>
+        <script type="importmap">
+        {
+            "imports": {
+                "vue":                  "https://unpkg.com/vue@3/dist/vue.esm-browser.js",                                  // Vue.js
+                "monitor-led":          "https://unpkg.com/@egadams/monitor-led@latest/dist/monitor-led.esm.js",            // monitor-led
+                "accordion-section":    "https://unpkg.com/@egadams/accordion-section@0.0.8/dist/accordion-section.esm.js", // accordion-section
+                "log-object-processor": "https://unpkg.com/monitored-object-ts@latest/build/module/lib/LogObjectProcessor", // log-object-processor
+                "log-vuer":             "https://unpkg.com/log-vuer@latest/dist/log-vuer.esm.js"                            // log-vuer
+            } }
+        </script>
+        <div id="section_1"></div>
+        <script type="module">
+            import { createApp, reactive } from 'vue';
+            import LogViewer from "log-vuer";
+            import  AccordionSection       from 'accordion-section';
+            import { ServerLedData }       from 'monitor-led';
+            import { LogObjectProcessor }   from 'log-object-processor';
+            // Uncaught TypeError: Failed to resolve module specifier "jquery". Relative references must start with either "/", "./", or "../".
+            // ERROR and FIX IT!!! THIS IS WASTING SO MUCH TIME !!!!!
+            // jquery is now a ...            ///////////////////////////////////// KILLER DEPENDENCY !!!! /////////////////////////
+            // const lop = new LogObjectProcessor();
+            const app = createApp( {
+                components: { AccordionSection },
+                setup() {
+                    const monitor_led_data = reactive( new ServerLedData() );
+                    return {
+                        monitor_led_data
+                    }
+                },
+                mounted() { console.log( "mounted." ); }
+            });
+            app.mount( '#section_1' );
+        </script>
+    </body>
+</html>

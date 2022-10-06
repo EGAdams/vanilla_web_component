@@ -1,20 +1,39 @@
-/** @class RemoteControl */
-class RemoteControl extends HTMLElement {
+/** @class LogObject */
+class LogObject extends HTMLElement {
     constructor() {
         super();
-        console.log( 'RemoteControl constructor' );
+        console.log( 'LogObject constructor' );
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `
-        <link rel="stylesheet" type="text/css" href="./remote_control.css" />
-        <h2></h2>
-        <div id="test">
-            <div class="container">
-                <div class="this_team_score"><slot     name="this_team_score"     /></div>
-                <div class="opposing_team_score"><slot name="opposing_team_score" /></div>
-                <div class="remote_undo_button">UNDO</div>
-                <div class="remote_reset_button">RESET</div>
-                <div class="transmitting_led"></div>
-            </div>
+        <style>
+            .log-object-container {
+                column-gap: 15px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 0.1px;
+                border: solid 0.0px;
+                margin-bottom: 3px;
+            }
+            li { 
+                list-style: none;
+            }
+        </style>
+        <div>
+            <li>
+                <div class="log-object-container">
+                    <div>
+                        <slot name="method" class="method"></slot>
+                    </div>
+                    <div>
+                        <slot name="timestamp"></slot>
+                    </div>
+                    <div>
+                        <slot name="message"></slot>
+                    </div>
+                </div>
+            </li>
         </div>`; }
 
     static get observedAttributes() { return [ "remote_title" ]; }
@@ -32,4 +51,4 @@ class RemoteControl extends HTMLElement {
     connectedCallback(){} 
 }
 
-customElements.define( 'remote-control', RemoteControl );
+customElements.define( 'log-object', LogObject );

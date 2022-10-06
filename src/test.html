@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>led test</title>
+</head>
+
+<body>
+    <div id="section_1">
+        <div id="outside-element-1646">The outside element.</div>
+        <monitor-led 
+            monitored_object_id="MessageManager_1646"
+            data_source_location="http://americansjewelry.com/libraries/local-php-api/index.php/">
+        </monitor-led>
+    </div>
+    <script>
+
+    </script>
+    <script type="importmap">
+        {
+            "imports": {
+                "vue":         "https://unpkg.com/vue@3/dist/vue.esm-browser.js",                        // Vue.js
+                "monitor-led": "https://unpkg.com/@egadams/monitor-led@latest/dist/monitor-led.esm.js"   // monitor-led
+            }
+        }
+    </script>
+
+    <script type="module">
+        import { ref, createApp, reactive } from "vue";
+        import ServerLedData from '../plugin_source/server_build/module/lib/ServerLedData.js';
+        import MonitorLed from 'monitor-led';
+        let this_page_led_data = ref( {
+            ledText: "checking the server status...",
+            classObject: {
+                background_color: "yellow",
+                text_align: "left",
+                margin_top: "4px"
+            }
+        } );
+        let thisLedData = {
+            ledText: "some failure...",
+            classObject: {
+                background_color: "red",
+                text_align: "left",
+                margin_top: "4px",
+                color: "white"
+            }
+        };
+        document.addEventListener( "led-data", function ( event ) {
+            // console.log( "led-data event: " + event.detail );
+            let outside_element = document.getElementById( "outside-element-" + event.detail.ID );
+            outside_element.style[ "background-color" ] = event.detail.monitorLedData.classObject.background_color;
+
+        });
+        const app = createApp( {
+            components: { MonitorLed },
+            setup () {
+                const monitor_led_data = reactive( {
+                    ledText: "checking the server status...",
+                    classObject: {
+                        background_color: "yellow",
+                        text_align: "left",
+                        margin_top: "4px"
+                    }
+                } )
+                return {
+                    monitor_led_data
+                }
+            },
+            mounted () {
+                setTimeout( () => {
+                    // console.table( thisLedData );
+                    this.monitor_led_data.classObject = thisLedData.classObject;
+                    this.monitor_led_data.ledText = thisLedData.ledText;
+
+                }, 2000 );
+
+            }
+        } );
+        app.mount( '#section_1' );
+    </script>
+</body>
+
+</html>
